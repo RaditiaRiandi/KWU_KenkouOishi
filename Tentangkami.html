@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - Kenkou Oishi</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #e0fcf8, #f1f8e9);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 50px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo img {
+        width: 70px;
+      }
+
+      nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: #004d40;
+        font-weight: 500;
+      }
+
+      nav a:nth-child(2) {
+        background-color: #b2dfdb;
+        padding: 5px 15px;
+        border-radius: 15px;
+      }
+
+      .about-section {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .about-section h1 {
+        color: #00695c;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+      }
+
+      .about-section img {
+        width: 250px;
+        margin-bottom: 30px;
+      }
+
+      .about-section p {
+        font-size: 1.1em;
+        max-width: 750px;
+        margin: 0 auto 20px auto;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .founders {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 50px 0;
+      }
+
+      .founder-card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 15px;
+        width: 240px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .founder-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 3px solid #b2dfdb;
+      }
+
+      .founder-card h3 {
+        margin: 10px 0 5px;
+        font-size: 1.2em;
+        color: #00695c;
+      }
+
+      .founder-card p {
+        font-size: 0.95em;
+        color: #555;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        .about-section img {
+          width: 180px;
+        }
+
+        .founders {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="Gambar/logo.png" alt="Logo Kenkou Oishi" />
+      </div>
+      <nav>
+        <a href="Home.html">Home</a>
+        <a href="Tentangkami.html">Tentang Kami</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Promo.html">Promo</a>
+        <a href="Kalori.html">Pemesanan</a>
+      </nav>
+    </header>
+
+    <section class="about-section">
+      <h1>Tentang Kami</h1>
+      <img src="Gambar/logo.png" alt="Tentang Kenkou Oishi" />
+      <p>
+        <b>Kenkou Oishi</b> berasal dari bahasa Jepang, di mana
+        <b>kenkou</b> berarti sehat dan <b>oishi</b> berarti lezat. Kami hadir
+        untuk menawarkan menu segar, sehat, dan nikmat untuk mendukung gaya
+        hidup sehat Anda.
+      </p>
+      <p>
+        Didirikan oleh tim mahasiswa kreatif, Kenkou Oishi menyediakan berbagai
+        menu salad dengan bahan berkualitas tinggi melalui platform pemesanan
+        online yang mudah diakses.
+      </p>
+
+      <h2 style="margin-top: 50px; color: #00695c">Tim Pendiri</h2>
+
+      <div class="founders">
+        <div class="founder-card">
+          <img src="Gambar/profil1.jpg" alt="CEO" />
+          <h3>Dara Cantika Dewi</h3>
+          <p>Prodi: Sains Data</p>
+          <p>Posisi: CEO & Founder</p>
+        </div>
+
+        <div class="founder-card">
+          <img src="Gambar/radit.jpg" alt="Developer" />
+          <h3>Raditia Riandi</h3>
+          <p>Prodi: Sains Data</p>
+          <p>Posisi: Developer & Desain UI</p>
+        </div>
+
+        <div class="founder-card">
+          <img src="Gambar/profil3.jpg" alt="Chef" />
+          <h3>Nazwa Nabila</h3>
+          <p>Prodi: Sains Data</p>
+          <p>Posisi: Head Chef & R&D Menu</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

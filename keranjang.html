@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout - Kenkou Oishi</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #e6fdfc;
+        margin: 0;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      .checkout-container {
+        max-width: 500px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .checkout-container label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      .checkout-container input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      .item-list {
+        margin-top: 20px;
+      }
+      .item-list p {
+        margin: 5px 0;
+      }
+      .barcode {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .barcode img {
+        width: 150px;
+      }
+      button {
+        background: #145a32;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        margin-top: 20px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Checkout</h2>
+
+    <div class="checkout-container">
+      <label for="nama">Nama Pembeli:</label>
+      <input type="text" id="nama" placeholder="Masukkan nama Anda" />
+
+      <div class="item-list" id="itemList">
+        <!-- List item di-inject via JS -->
+      </div>
+
+      <button onclick="prosesBayar()">Proses Pembayaran</button>
+
+      <div class="barcode" id="barcodeSection">
+        <h4>Terima kasih, <span id="namaPembeli"></span>!</h4>
+        <p>Scan barcode ini untuk pembayaran:</p>
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?data=KenkouOishiPayment&size=150x150"
+          alt="barcode pembayaran"
+        />
+      </div>
+    </div>
+
+    <script>
+      // Ambil data cart dari localStorage (kalau ada)
+      const cart = JSON.parse(localStorage.getItem("cart")) || {};
+      const itemList = document.getElementById("itemList");
+      let itemContent = "";
+
+      if (Object.keys(cart).length === 0) {
+        itemContent = "<p>Tidak ada item di keranjang.</p>";
+      } else {
+        for (let item in cart) {
+          if (cart[item] > 0) {
+            itemContent += `<p>${item.replace("item", "Menu ")} : ${
+              cart[item]
+            }</p>`;
+          }
+        }
+      }
+      itemList.innerHTML = itemContent;
+
+      function prosesBayar() {
+        const nama = document.getElementById("nama").value;
+        if (nama === "") {
+          alert("Mohon masukkan nama Anda!");
+          return;
+        }
+
+        document.getElementById("namaPembeli").innerText = nama;
+        document.getElementById("barcodeSection").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

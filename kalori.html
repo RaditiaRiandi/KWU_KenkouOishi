@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kenkou Oishi - Pemesanan</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #e6fdfc;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+      }
+
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #145a32;
+        font-weight: bold;
+      }
+
+      nav a.active {
+        background: #c8f4eb;
+        padding: 5px 10px;
+        border-radius: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        margin: 20px;
+        color: #004d40;
+      }
+
+      .menu-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-detail {
+        flex: 1;
+        margin-left: 20px;
+      }
+
+      .menu-item img {
+        width: 100px;
+        border-radius: 10px;
+      }
+
+      .menu-detail h4 {
+        margin: 0 0 8px 0;
+        color: #00695c;
+      }
+
+      .menu-detail p {
+        margin: 5px 0;
+        font-size: 0.95em;
+        color: #333;
+      }
+
+      .order-controls {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .order-controls button {
+        padding: 5px 12px;
+        background: #26a69a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      .order-controls span {
+        font-size: 1.1em;
+        min-width: 20px;
+        text-align: center;
+      }
+
+      .checkout-bar {
+        background: #004d40;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2em;
+      }
+
+      .checkout-bar a {
+        background: #26a69a;
+        color: white;
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 8px;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="Gambar/logo.png" alt="logo" width="70" />
+      <nav>
+        <a href="Home.html">Home</a>
+        <a href="Tentangkami.html">Tentang Kami</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Promo.html">Promo</a>
+        <a href="Pemesanan.html" class="active">Pemesanan</a>
+      </nav>
+    </header>
+
+    <h2>Pesan Menu Favoritmu</h2>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad Ori" />
+      <div class="menu-detail">
+        <h4>Salad Ori</h4>
+        <p>Kalori: ± 150 kkal | Harga: Rp 20.000</p>
+        <div class="order-controls">
+          <button onclick="kurangi('item1')">-</button>
+          <span id="item1">0</span>
+          <button onclick="tambah('item1')">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad Egg" />
+      <div class="menu-detail">
+        <h4>Salad Egg</h4>
+        <p>Kalori: ± 200 kkal | Harga: Rp 25.000</p>
+        <div class="order-controls">
+          <button onclick="kurangi('item2')">-</button>
+          <span id="item2">0</span>
+          <button onclick="tambah('item2')">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad Ori x Egg/Chicken" />
+      <div class="menu-detail">
+        <h4>Salad Ori x Egg/Chicken</h4>
+        <p>Kalori: ± 300 kkal | Harga: Rp 30.000</p>
+        <div class="order-controls">
+          <button onclick="kurangi('item3')">-</button>
+          <span id="item3">0</span>
+          <button onclick="tambah('item3')">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-bar">
+      Total Item: <span id="totalItem">0</span>
+      <a href="checkout.html">Checkout</a>
+    </div>
+
+    <script>
+      let cart = {
+        item1: 0,
+        item2: 0,
+        item3: 0,
+      };
+
+      function tambah(item) {
+        cart[item]++;
+        document.getElementById(item).innerText = cart[item];
+        simpanKeLocal();
+        updateTotal();
+      }
+
+      function kurangi(item) {
+        if (cart[item] > 0) {
+          cart[item]--;
+          document.getElementById(item).innerText = cart[item];
+          simpanKeLocal();
+          updateTotal();
+        }
+      }
+
+      function simpanKeLocal() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+
+      function updateTotal() {
+        let total = cart.item1 + cart.item2 + cart.item3;
+        document.getElementById("totalItem").innerText = total;
+      }
+    </script>
+  </body>
+</html>

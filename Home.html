@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenkou Oishi</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 50px;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo img {
+        width: 70px;
+      }
+
+      nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: #004d40;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #009688;
+      }
+
+      nav a:first-child {
+        background-color: #b2dfdb;
+        padding: 5px 15px;
+        border-radius: 15px;
+      }
+
+      .main-content {
+        text-align: center;
+        padding: 70px 20px;
+      }
+
+      .main-content h1 {
+        color: #00897b;
+        font-size: 2.8em;
+        margin-bottom: 10px;
+      }
+
+      .subtext {
+        color: #555;
+        font-size: 1.1em;
+        margin-bottom: 30px;
+      }
+
+      .main-content .fresh {
+        font-size: 4em;
+        color: #4dd0e1;
+        font-weight: bold;
+        letter-spacing: 2px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .main-content .vegetable {
+        font-size: 3em;
+        font-style: italic;
+        color: #004d40;
+        margin-top: 10px;
+        animation: fadeInUp 1.5s ease-out;
+      }
+
+      .main-content img {
+        width: 280px;
+        margin-top: 40px;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="Gambar/logo.png" alt="Logo Kenkou Oishi" />
+      </div>
+      <nav>
+        <a href="Home.html">Home</a>
+        <a href="Tentangkami.html">Tentang Kami</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Promo.html">Promo</a>
+        <a href="Kalori.html">Pemesanan</a>
+      </nav>
+    </header>
+
+    <div class="main-content">
+      <h1>Selamat Datang di Kenkou Oishi!</h1>
+      <p class="subtext">
+        Tempatnya makanan sehat, segar, dan bergizi untuk hidup lebih baik 🌿
+      </p>
+      <div class="fresh">FRESH</div>
+      <div class="vegetable">VEGETABLE</div>
+      <img src="Gambar/Salad.png" alt="Karakter Sayur" />
+    </div>
+  </body>
+</html>

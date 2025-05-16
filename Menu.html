@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kenkou Oishi - Menu</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #e6fdfc;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+      }
+
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #145a32;
+        font-weight: bold;
+      }
+
+      nav a.active {
+        background: #c8f4eb;
+        padding: 5px 10px;
+        border-radius: 20px;
+      }
+
+      .menu-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 20px;
+        display: flex;
+        align-items: flex-start;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-item img {
+        width: 100px;
+        margin-right: 20px;
+        border-radius: 10px;
+      }
+
+      .menu-item h4 {
+        margin: 0 0 8px 0;
+      }
+
+      .menu-detail {
+        flex: 1;
+      }
+
+      .menu-detail p {
+        margin: 5px 0;
+        font-size: 0.95em;
+        color: #333;
+      }
+
+      .menu-detail .foto-menu {
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .menu-detail .foto-menu img {
+        width: 200px;
+        border-radius: 10px;
+        border: 2px solid #c8f4eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="Gambar/logo.png" alt="logo" width="70" />
+      <nav>
+        <a href="Home.html">Home</a>
+        <a href="Tentangkami.html">Tentang Kami</a>
+        <a href="Menu.html" class="active">Menu</a>
+        <a href="Promo.html">Promo</a>
+        <a href="Kalori.html">Pemesanaan</a>
+      </nav>
+    </header>
+
+    <h2 style="text-align: center; margin-top: 20px">Daftar Menu</h2>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad Ori" />
+      <div class="menu-detail">
+        <h4>Salad Ori</h4>
+        <p><strong>Komposisi:</strong> Lettuce, kol ungu, wortel, timun</p>
+        <p>
+          <strong>Khasiat:</strong> Tinggi serat, bantu pencernaan & kaya
+          antioksidan
+        </p>
+        <p><strong>Kalori:</strong> ± 150 kkal per porsi</p>
+        <div class="foto-menu">
+          <img src="Gambar/s.jpg" alt="Salad Ori Close Up" />
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad with Egg" />
+      <div class="menu-detail">
+        <h4>Salad with Egg</h4>
+        <p>
+          <strong>Komposisi:</strong> Lettuce, kol ungu, wortel, timun, telur
+          rebus
+        </p>
+        <p>
+          <strong>Khasiat:</strong> Serat + protein, bantu metabolisme tubuh
+        </p>
+        <p><strong>Kalori:</strong> ± 200 kkal per porsi</p>
+        <div class="foto-menu">
+          <img src="Gambar/Salad Preview.jpg" alt="Salad Egg Close Up" />
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Gambar/Salad.png" alt="Salad Ori x Egg/Chicken" />
+      <div class="menu-detail">
+        <h4>Salad Ori x Egg/Chicken</h4>
+        <p>
+          <strong>Komposisi:</strong> Lettuce, kol ungu, wortel, timun, telur
+          rebus atau chicken teriyaki
+        </p>
+        <p>
+          <strong>Khasiat:</strong> Komplit serat dan protein, cocok diet sehat
+        </p>
+        <p><strong>Kalori:</strong> ± 300 kkal per porsi</p>
+        <div class="foto-menu">
+          <img src="Gambar/Salad Preview.jpg" alt="Salad Chicken Close Up" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #e6fdfc;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      .checkout-list {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .checkout-list p {
+        margin: 8px 0;
+      }
+      input[type="text"] {
+        padding: 8px;
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px;
+        background: #145a32;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Checkout Pesanan</h2>
+
+    <div class="checkout-list" id="checkoutList"></div>
+    <h3>Total Harga: Rp <span id="totalHarga">0</span></h3>
+    <h3>Total Kalori: <span id="totalKalori">0</span> kkal</h3>
+
+    <input type="text" id="namaPembeli" placeholder="Masukkan Nama Anda" />
+    <input type="text" id="waPembeli" placeholder="Masukkan No WhatsApp Anda" />
+
+    <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLScfSF3mkCLtsi0Rab1uZv1ypW8-DOrL7w7s-ozO4MwM0KuudA/formResponse"
+      method="POST"
+      target="_blank"
+      onsubmit="isiForm()"
+    >
+      <input type="hidden" name="entry.1623114786" id="inputNama" />
+      <input type="hidden" name="entry.766666771" id="inputPesanan" />
+      <input type="hidden" name="entry.614138586" id="inputTotalHarga" />
+      <input type="hidden" name="entry.1080306673" id="inputTotalKalori" />
+      <input type="hidden" name="entry.311596377" id="inputWa" />
+
+      <button type="submit">Kirim Pesanan ke Google Form</button>
+    </form>
+
+    <script>
+      let hargaPerItem = {
+        "Salad Ori": 20000,
+        "Salad Egg": 25000,
+        "Salad Ori x Egg/Chicken": 30000,
+      };
+
+      let kaloriPerItem = {
+        "Salad Ori": 150,
+        "Salad Egg": 200,
+        "Salad Ori x Egg/Chicken": 300,
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || {};
+      let checkoutList = document.getElementById("checkoutList");
+      let totalHarga = 0;
+      let totalKalori = 0;
+      let listHTML = "";
+
+      if (cart.item1 > 0) {
+        let harga = hargaPerItem["Salad Ori"] * cart.item1;
+        let kalori = kaloriPerItem["Salad Ori"] * cart.item1;
+        listHTML += `Salad Ori: ${cart.item1} x Rp 20.000 = Rp ${harga} | ${kalori} kkal\n`;
+        totalHarga += harga;
+        totalKalori += kalori;
+      }
+      if (cart.item2 > 0) {
+        let harga = hargaPerItem["Salad Egg"] * cart.item2;
+        let kalori = kaloriPerItem["Salad Egg"] * cart.item2;
+        listHTML += `Salad Egg: ${cart.item2} x Rp 25.000 = Rp ${harga} | ${kalori} kkal\n`;
+        totalHarga += harga;
+        totalKalori += kalori;
+      }
+      if (cart.item3 > 0) {
+        let harga = hargaPerItem["Salad Ori x Egg/Chicken"] * cart.item3;
+        let kalori = kaloriPerItem["Salad Ori x Egg/Chicken"] * cart.item3;
+        listHTML += `Salad Ori x Egg/Chicken: ${cart.item3} x Rp 30.000 = Rp ${harga} | ${kalori} kkal\n`;
+        totalHarga += harga;
+        totalKalori += kalori;
+      }
+
+      if (listHTML === "") {
+        listHTML = "Belum ada item.";
+      }
+
+      checkoutList.innerText = listHTML;
+      document.getElementById("totalHarga").innerText =
+        totalHarga.toLocaleString();
+      document.getElementById("totalKalori").innerText =
+        totalKalori.toLocaleString();
+
+      function isiForm() {
+        document.getElementById("inputNama").value =
+          document.getElementById("namaPembeli").value;
+        document.getElementById("inputWa").value =
+          document.getElementById("waPembeli").value;
+        document.getElementById("inputPesanan").value = checkoutList.innerText;
+        document.getElementById("inputTotalHarga").value =
+          document.getElementById("totalHarga").innerText;
+        document.getElementById("inputTotalKalori").value =
+          document.getElementById("totalKalori").innerText;
+      }
+    </script>
+  </body>
+</html>
